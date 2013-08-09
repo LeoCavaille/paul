@@ -1,0 +1,3 @@
+* Package debian
+    * Deps packages : python-clint python-gnupg
+    * Package python-texttable requires pip now
