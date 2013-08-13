@@ -18,4 +18,12 @@ As root on your machine :
 
 Now have fun, for instance :
 
-    paul --host debuild.me.ecranbleu.org --port 20017 --user paul
+    paul --host debuild.me --port 20017 --user paul
+
+To use with a list of commands :
+
+    echo "user list" >> /tmp/commands.tag
+    echo "machine list" >> /tmp/commands.tag
+    paul --host debuild.me --port 20017 --user paul -f /tmp/commands.tag
+
+A password can be supplied in the CLI with --password option.

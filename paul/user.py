@@ -3,7 +3,8 @@ from clint.textui import puts, colored
 import cmd
 import shlex
 
-import client
+import paul.client
+
 import texttable as tt
 
 def wrong_syntax(cmd):
@@ -12,7 +13,7 @@ def wrong_syntax(cmd):
 class User(cmd.Cmd):
     def do_list(self, s):
         "List all users registered in lucy"
-        users = client.proxy.list_user()
+        users = paul.client.proxy.list_user()
         puts(colored.green( "Here is a list of lucy users :"))
         table = tt.Texttable()
         header = ['Login', 'Name', 'Email', 'GPG fingerprint', 'Admin rights']
@@ -43,8 +44,8 @@ class User(cmd.Cmd):
         gpgkeyid = args[4]
         
         # Try to fetch an armored ascii version of the key
-        ascii_armored_key = client.gpg.export_keys(gpgkeyid)
-        user, reply = client.proxy.create_user(login, password, name, email, ascii_armored_key)
+        ascii_armored_key = paul.client.gpg.export_keys(gpgkeyid)
+        user, reply = paul.client.proxy.create_user(login, password, name, email, ascii_armored_key)
         # TODO : could use user var to print some debug info on the created entity
         if user:
             puts(colored.green("Success : "+reply))
