@@ -36,6 +36,8 @@ def load_command_file(filename):
                 else:
                     args.pop(0)
                     args.pop(0)
+                    cls = getattr(mod, class_name)
+                    instance = cls()
                     getattr(instance, command_name)(list2cmdline(args))
     except IOError:
         puts(colored.red("File given with -f option does not exist : "+filename))
