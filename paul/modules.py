@@ -1,7 +1,7 @@
 import cmd
 from paul.user import User
 from paul.machine import Machine
-from paul.job import job
+from paul.job import Job
 
 class Modules(cmd.Cmd):
     prompt = 'paul > '
