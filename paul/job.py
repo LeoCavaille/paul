@@ -25,9 +25,9 @@ class Job(cmd.Cmd):
         """
         if s:
             paul.client.proxy.set_paused_status(s)
-            pretty_print_pause(paul.client.proxy.get_paused_status(s))
+            pretty_print_pause(paul.client.proxy.get_paused_status())
         else:
-            pretty_print_pause(paul.client.proxy.get_paused_status(s))
+            pretty_print_pause(paul.client.proxy.get_paused_status())
 
     # Catch ^D
     def do_EOF(self, line):
