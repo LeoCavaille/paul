@@ -23,8 +23,8 @@ class Job(cmd.Cmd):
             paused - returns the status of lucy instance
             paused 0|1 - set the pause or resume
         """
-        if s:
-            paul.client.proxy.set_paused_status(s)
+        if s != "":
+            paul.client.proxy.set_paused_status((s=="1"))
             pretty_print_pause(paul.client.proxy.get_paused_status())
         else:
             pretty_print_pause(paul.client.proxy.get_paused_status())
